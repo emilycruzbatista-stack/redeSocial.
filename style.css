@@ -1,3 +1,6 @@
+CSS
+
+
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +17,7 @@ body {
     padding: 20px;
 }
 
-/* Moldura estilo smartphone com borda em gradiente */
+/* Moldura estilo smartphone */
 .phone-frame {
     width: 100%;
     max-width: 380px;
@@ -70,6 +73,7 @@ body {
     width: 100%;
     aspect-ratio: 4 / 5;
     background-color: #eee;
+    cursor: pointer;
 }
 
 .post-media img.main-img {
@@ -79,7 +83,7 @@ body {
     display: block;
 }
 
-/* Avatar pequeno com ícone '+' sobreposto na foto */
+/* Avatar pequeno sobreposto */
 .user-badge {
     position: absolute;
     bottom: 16px;
@@ -113,7 +117,7 @@ body {
     border: 2px solid #ffffff;
 }
 
-/* Ações (Curtir, Comentar, Repostar, Direct, Salvar) */
+/* Ações */
 .post-actions {
     display: flex;
     align-items: center;
@@ -147,6 +151,22 @@ body {
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
+    transition: transform 0.15s ease, fill 0.2s ease, stroke 0.2s ease;
+}
+
+/* Estilo visual para Curtido e Salvo */
+.like-btn.liked svg {
+    fill: #ff3040;
+    stroke: #ff3040;
+}
+
+.like-btn.liked {
+    color: #ff3040;
+}
+
+.bookmark-btn.bookmarked svg {
+    fill: #ffffff;
+    stroke: #ffffff;
 }
 
 /* Texto de Curtidas */
