@@ -1,6 +1,3 @@
-JavaScript
-
-
 document.addEventListener("DOMContentLoaded", () => {
     const likeBtn = document.querySelector(".like-btn");
     const postMedia = document.querySelector(".post-media");
@@ -10,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const bookmarkBtn = document.querySelector(".bookmark-btn");
 
     let isLiked = false;
-    let baseLikes = 1200; // Valor inicial correspondente ao HTML
+    let baseLikes = 0; // Inicia o contador zerado
 
     // Formata números grandes (ex: 1000 -> 1.0K)
     function formatLikes(num) {
@@ -20,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return num.toString();
     }
 
-    // Inicializa o texto visual
+    // Garante que o contador na tela inicie em "0"
     if (likesCountSpan) {
         likesCountSpan.textContent = formatLikes(baseLikes);
     }
@@ -45,11 +42,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Evento de clique no BOTÃO DE CORAÇÃO (Alterna estado)
+    // Evento de clique no BOTÃO DE CORAÇÃO
     likeBtn.addEventListener("click", (e) => {
         e.stopPropagation();
 
         if (isLiked) {
+            // Se já estava curtido, ao clicar no coração ele descurte (-1)
             isLiked = false;
             baseLikes = Math.max(0, baseLikes - 1);
             likeBtn.classList.remove("liked");
@@ -57,11 +55,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 likesCountSpan.textContent = formatLikes(baseLikes);
             }
         } else {
+            // Se não estava curtido, adiciona +1 curtida
             addLike();
         }
     });
 
-    // Evento de clique na IMAGEM PRINCIPAL
+    // Evento de clique na IMAGEM PRINCIPAL (Sempre adiciona +1 curtida)
     if (postMedia) {
         postMedia.addEventListener("click", (e) => {
             e.stopPropagation();
